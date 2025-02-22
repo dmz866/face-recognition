@@ -3,7 +3,7 @@ import face_recognition as fr
 
 pic_a = fr.load_image_file('pictures/picture_a.jpg')
 
-pic_b = fr.load_image_file('pictures/picture_c.jpg')
+pic_b = fr.load_image_file('pictures/picture_b.jpg')
 
 # Turn pictures into RGB
 pic_a = cv2.cvtColor(pic_a, cv2.COLOR_BGR2RGB)
@@ -24,6 +24,11 @@ cv2.rectangle(pic_b, (face_b[3],face_b[0]), (face_b[1], face_b[2]), (0, 255, 0),
 result = fr.compare_faces([face_a_encoded], face_b_encoded)
 print(result)
 
+#check how similar 2 faces are (distance)
+distance = fr.face_distance([face_a_encoded], face_b_encoded)
+print(distance)
+
+cv2.putText(pic_a, f'Result: {result} {distance.round(2)}', (50, 50), cv2.FONT_HERSHEY_PLAIN, 1, (0, 255, 0), 2)
 cv2.imshow('Picture A', pic_a)
 cv2.imshow('Picture B', pic_b)
 
