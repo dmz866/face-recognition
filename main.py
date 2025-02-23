@@ -3,6 +3,14 @@ import face_recognition as fr
 
 pic_a = fr.load_image_file('pictures/picture_a.jpg')
 
+#web_cam_pic_a = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+#[success, pic_a] = web_cam_pic_a.read()
+'''
+if success:
+    face_a = fr.face_locations(image)[0]
+else:
+    print('Error!')
+'''
 pic_b = fr.load_image_file('pictures/picture_b.jpg')
 
 # Turn pictures into RGB
